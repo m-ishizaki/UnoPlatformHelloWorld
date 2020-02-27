@@ -6,6 +6,8 @@
 
 - **Cross-Platform App (Uno Platform)**
 
+プロジェクト名は **UnoApp1** とします。
+
 # 実行
 ## 実行 (wasm)
 
