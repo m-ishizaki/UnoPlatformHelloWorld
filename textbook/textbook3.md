@@ -7,6 +7,7 @@
 # 画面に要素を追加
 
 ## ScrollViewer を画面全体に表示
+
 まず、画面全体に表示する ScrollViewer と StackPanel を追加します。  
 
 **MainPage.xaml** を開いて編集します。  

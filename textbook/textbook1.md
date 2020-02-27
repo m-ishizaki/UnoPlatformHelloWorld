@@ -72,4 +72,4 @@ https://docs.microsoft.com/ja-jp/xamarin/ios/get-started/installation/
 
 
 
-[< | 前へ](./top.md) | [次へ | >](./textbook2.md)
+[< | Topへ](./top.md) | [次へ | >](./textbook2.md)

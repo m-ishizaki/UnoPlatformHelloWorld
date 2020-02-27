@@ -340,4 +340,4 @@ https://docs.microsoft.com/ja-jp/dotnet/framework/wpf/advanced/mc-ignorable-attr
 今回の Hello world はこれで終わりです。基本は押さえられたと思います。是非 Uno Platform でのアプリ開発にチャレンジしてみてください。  
 おつかれさまでした。
 
-[< | 前へ](./textbook8.md) | [次へ | >](./top.md)
+[< | 前へ](./textbook8.md) | [Topへ | >](./top.md)
