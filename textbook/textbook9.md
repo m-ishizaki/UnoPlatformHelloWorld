@@ -42,7 +42,7 @@ https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/preprocessor-d
   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
       <StackPanel>
-      ```
+  ```
 
 のすぐ下に追加します。  
 **MainPage.xaml** 全体は次のようになります。
