@@ -29,7 +29,7 @@
                 </StackPanel>
 
                 <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+                  ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 
             </StackPanel>
 

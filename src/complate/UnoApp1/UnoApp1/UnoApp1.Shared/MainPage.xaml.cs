@@ -36,18 +36,11 @@ namespace UnoApp1
             textBlock1.Text = $"{textBox1.Text}{textBox2.Text}";
         }
 
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var view = sender as ListView;
-            var index = view.SelectedIndex;
-            if (index < 0) return;
-            var value = (view.DataContext as string[])[index];
+            var value =  e.ClickedItem;
 
             this.Frame.Navigate(typeof(SecondPage), value);
-
-            var data = listView.DataContext;
-            listView.DataContext = null;
-            listView.DataContext = data;
         }
     }
 }
