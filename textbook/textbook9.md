@@ -79,9 +79,9 @@ https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/preprocessor-d
         </StackPanel>
 
         <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+          ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 
-        </StackPanel>
+      </StackPanel>
 
     </ScrollViewer>
   </Grid>
@@ -142,18 +142,11 @@ namespace UnoApp1
             textBlock1.Text = $"{textBox1.Text}{textBox2.Text}";
         }
 
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var view = sender as ListView;
-            var index = view.SelectedIndex;
-            if (index < 0) return;
-            var value = (view.DataContext as string[])[index];
+            var value =  e.ClickedItem;
 
             this.Frame.Navigate(typeof(SecondPage), value);
-
-            var data = listView.DataContext;
-            listView.DataContext = null;
-            listView.DataContext = data;
         }
     }
 }
@@ -248,9 +241,9 @@ https://docs.microsoft.com/ja-jp/dotnet/framework/wpf/advanced/mc-ignorable-attr
         </StackPanel>
 
         <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+          ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 
-        </StackPanel>
+      </StackPanel>
 
     </ScrollViewer>
   </Grid>
@@ -319,9 +312,9 @@ https://docs.microsoft.com/ja-jp/dotnet/framework/wpf/advanced/mc-ignorable-attr
         </StackPanel>
 
         <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+          ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 
-        </StackPanel>
+      </StackPanel>
 
     </ScrollViewer>
   </Grid>

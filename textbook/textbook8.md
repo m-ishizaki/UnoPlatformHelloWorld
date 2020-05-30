@@ -6,17 +6,17 @@
 
 # 最初の画面に一覧選択イベントを追加
 
-**MainPage.xaml** に **ListView** で要素選択時の処理を行えるイベントハンドラの設定を追加します。
+**MainPage.xaml** に **ListView** で要素クリック(タップ)時の処理を行えるイベントハンドラの設定を追加します。
 
 ```xml
-SelectionChanged="listView_SelectionChanged"
+ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"
 ```
 
 イベントハンドラの設定を追加した **ListView** は次の様になります。
 
 ```xml
         <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+                  ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 ```
 
 **MainPage.xaml** 全体は次のようになります。
@@ -51,9 +51,9 @@ SelectionChanged="listView_SelectionChanged"
         </StackPanel>
 
         <ListView x:Name="listView" Height="150" Background="LightGray"
-                  ItemsSource="{Binding}" SelectionChanged="listView_SelectionChanged" />
+          ItemsSource="{Binding}" ItemClick="listView_ItemClick" SelectionMode="None" IsItemClickEnabled="true"/>
 
-        </StackPanel>
+      </StackPanel>
 
     </ScrollViewer>
   </Grid>
@@ -62,23 +62,14 @@ SelectionChanged="listView_SelectionChanged"
 
 # イベント処理で画面遷移のコードを追加
 
-**MainPage.xaml.cs** に一覧で要素が選択された際に画面遷移するコードを追加します。  
-
-**※** ここで書いたリストから選択値を取得するコードはあまり良いコードではありません。あまり良くないコードを書いた理由は、このコードがどのプラットフォームでも動作したからです。クロスプラットフォーム開発では、プラットフォーム毎に異なるコードを動かすべき場所が出てきます。プラットフォーム毎にコードを変える方法は次回で学びます。
+**MainPage.xaml.cs** に一覧で要素がクリック(タップ)された際に画面遷移するコードを追加します。  
 
 ```cs
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var view = sender as ListView;
-            var index = view.SelectedIndex;
-            if (index < 0) return;
-            var value = (view.DataContext as string[])[index];
+            var value =  e.ClickedItem;
 
             this.Frame.Navigate(typeof(SecondPage), value);
-
-            var data = listView.DataContext;
-            listView.DataContext = null;
-            listView.DataContext = data;
         }
 ```
 
@@ -108,18 +99,11 @@ namespace UnoApp1
             textBlock1.Text = $"{textBox1.Text}{textBox2.Text}";
         }
 
-        private void listView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var view = sender as ListView;
-            var index = view.SelectedIndex;
-            if (index < 0) return;
-            var value = (view.DataContext as string[])[index];
+            var value =  e.ClickedItem;
 
             this.Frame.Navigate(typeof(SecondPage), value);
-
-            var data = listView.DataContext;
-            listView.DataContext = null;
-            listView.DataContext = data;
         }
     }
 }
@@ -130,6 +114,6 @@ namespace UnoApp1
 <img src="image012.jpg" width="350" />
 
 私は **草加せんべい** を選択！  
-一覧で要素を選択すると、画面遷移し遷移先の画面に選択した値が表示されました！
+一覧で要素をクリック(タップ)すると、画面遷移し遷移先の画面にクリック(タップ)した値が表示されました！
 
 [< | 前へ](./textbook7.md) | [次へ | >](./textbook9.md)
